@@ -12,7 +12,7 @@ export function ClientPage() {
       <div className="flex flex-col justify-center items-center p-16 pt-4 gap-4 bg-blue-gray-50">
         <SimpleNavbar />
 
-        <Card className="h-full w-full">
+        <Card className="h-full w-full" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           <ClientTableHeader />
           <ClientTableBody />
         </Card>

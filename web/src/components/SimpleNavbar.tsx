@@ -33,21 +33,19 @@ export function SimpleNavbar() {
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4">
+    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4"placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       <div className="flex items-center justify-between">
         <Typography
           as="h1"
           variant="h6"
-          className="text-blue-gray-900"
-        >
+          className="text-blue-gray-900"placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           Marouane Dbibih
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <IconButton
           variant="text"
           className="ml-auto lg:hidden"
-          onClick={() => setOpenNav(!openNav)}
-        >
+          onClick={() => setOpenNav(!openNav)}placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           {openNav ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,97 @@
+services:
+  # MySQL service
+  mysql:
+    image: mysql:latest
+    container_name: ace_ms_2_mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ace_ms_2_mysql_data:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+    networks:
+      - ace-ms-2-network
+  # Euraka service
+  eureka-server:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+    container_name: ace_ms_2_eureka_server
+    ports:
+      - "8761:8761"
+    networks:
+      - ace-ms-2-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  # Client service
+  client-service:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: ace_ms_2_client_service
+    ports:
+      - "8801:8801"
+    networks:
+      - ace-ms-2-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  # Car service
+  car-service:
+    build:
+      context: ./car
+      dockerfile: Dockerfile
+    container_name: ace_ms_2_car_service
+    ports:
+      - "8802:8802"
+    networks:
+      - ace-ms-2-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - mysql
+      - eureka-server
+  # Gateway service
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: ace_ms_2_gateway_service
+    ports:
+      - "8888:8888"
+    networks:
+      - ace-ms-2-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - eureka-server
+      - client-service
+      - car-service
+  # React Frontend
+  react-app:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      # args:
+      #   - REACT_APP_API_URL=http://gateway:8888
+    container_name: ace_ms_2_react_app
+    ports:
+      - "5174:80"  
+    networks:
+      - ace-ms-2-network
+    # environment:
+    #   - REACT_APP_API_URL=http://gateway:8888  
+    depends_on:
+      - gateway
+
+# Volume for MySQL data
+volumes:
+  ace_ms_2_mysql_data:
+
+# Network for MySQL and Spring Boot
+networks:
+  ace-ms-2-network:
+    driver: bridge

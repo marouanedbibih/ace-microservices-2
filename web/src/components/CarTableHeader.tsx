@@ -10,13 +10,13 @@ import {
   export function CarTableHeader() {
     const { toggleForm } = useCarContext(); // Use CarProvider context
     return (
-      <CardHeader floated={false} shadow={false} className="rounded-none">
+      <CardHeader floated={false} shadow={false} className="rounded-none" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <div className="mb-4 flex flex-col justify-between gap-8 md:flex-row md:items-center">
           <div>
-            <Typography variant="h5" color="blue-gray">
+            <Typography variant="h5" color="blue-gray" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               Car List
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
+            <Typography color="gray" className="mt-1 font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               Manage your cars here.
             </Typography>
           </div>
@@ -25,14 +25,13 @@ import {
               <Input
                 label="Search"
                 icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-                placeholder="Search cars..."
-              />
+                placeholder="Search cars..." onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}              />
             </div>
             <Button
               className="flex items-center gap-3"
               size="sm"
               onClick={toggleForm} // Trigger form toggle to add a new car
-            >
+              placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               <TruckIcon strokeWidth={2} className="h-4 w-4" /> Add Car
             </Button>
           </div>

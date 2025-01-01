@@ -5,6 +5,7 @@ import java.util.List;
 import org.marouanedbibih.car.modules.client.ClientDTO;
 import org.marouanedbibih.car.modules.client.ClientService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,14 +15,17 @@ public class CarService {
 
     private final CarRepository repository;
     private final CarMapper mapper;
-    private final ClientService clientService;
+    // private final ClientService clientService;
+    private final RestTemplate restTemplate;
 
     // TODO: Chnage the RuntimeException to a more specific exception
     // (BussinessException)
 
     // Create a new car
     public CarDTO create(CarREQ req) {
-        ClientDTO client = clientService.findById(req.clientId());
+        // ClientDTO client = clientService.findById(req.clientId());
+        ClientDTO client = restTemplate.getForObject("http://client-service/api/client/" + req.clientId(), ClientDTO.class);
+
         if (client == null) {
             throw new RuntimeException("Client not found");
         }
@@ -36,7 +40,8 @@ public class CarService {
     // Find a car by id
     public CarDTO findById(Long id) {
         Car car = repository.findById(id).orElseThrow(() -> new RuntimeException("Car not found"));
-        ClientDTO client = clientService.findById(car.getClientId());
+        // ClientDTO client = clientService.findById(car.getClientId());
+        ClientDTO client = restTemplate.getForObject("http://client-service/api/client/" + car.getClientId(), ClientDTO.class);
         CarDTO carDTO = mapper.toDTO(car);
         carDTO.setClient(client);
         return carDTO;
@@ -48,7 +53,8 @@ public class CarService {
                 .orElseThrow(() -> new RuntimeException("Car not found"));
 
         if (!car.getClientId().equals(req.clientId())) {
-            ClientDTO client = clientService.findById(req.clientId());
+            // ClientDTO client = clientService.findById(req.clientId());
+            ClientDTO client = restTemplate.getForObject("http://client-service/api/client/" + req.clientId(), ClientDTO.class);
             if (client == null) {
                 throw new RuntimeException("Client not found");
             }
@@ -62,7 +68,7 @@ public class CarService {
         car = repository.save(car);
 
         CarDTO carDTO = mapper.toDTO(car);
-        carDTO.setClient(clientService.findById(car.getClientId()));
+        carDTO.setClient(restTemplate.getForObject("http://client-service/api/client/" + req.clientId(), ClientDTO.class));
         return carDTO;
     }
 
@@ -81,7 +87,7 @@ public class CarService {
         return repository.findAll().stream()
                 .map(car -> {
                     CarDTO carDTO = mapper.toDTO(car);
-                    carDTO.setClient(clientService.findById(car.getClientId()));
+                    carDTO.setClient(restTemplate.getForObject("http://client-service/api/client/" + car.getClientId(), ClientDTO.class));
                     return carDTO;
                 })
                 .toList();

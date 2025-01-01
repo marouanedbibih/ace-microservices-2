@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { useState, useEffect } from "react";
 import {
@@ -122,16 +123,15 @@ export function CarForm() {
         size="md"
         open={isFormOpen}
         handler={toggleForm}
-        className="bg-transparent shadow-none"
-      >
-        <Card className="mx-auto w-full max-w-[28rem]">
-          <CardBody>
-            <Typography variant="h4" color="blue-gray" className="text-center">
+        className="bg-transparent shadow-none" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
+        <Card className="mx-auto w-full max-w-[28rem]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <Typography variant="h4" color="blue-gray" className="text-center"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               {carId ? "Edit Car" : "Create Car"}
             </Typography>
             {formLoading ? (
               <div className="flex justify-center items-center h-32">
-                <Spinner className="h-12 w-12 text-blue-500" />
+                <Spinner className="h-12 w-12 text-blue-500" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
               </div>
             ) : (
               <form
@@ -139,55 +139,51 @@ export function CarForm() {
                 className="flex flex-col gap-4 mt-6"
               >
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Marque
                   </Typography>
                   <Input
-                    size="lg"
-                    value={request.marque}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      setRequest({ ...request, marque: e.target.value });
-                    }}
-                    placeholder="Enter car marque"
-                  />
+                      size="lg"
+                      value={request.marque}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequest({ ...request, marque: e.target.value });
+                      } }
+                      placeholder="Enter car marque" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}                  />
                 </div>
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Matricule
                   </Typography>
                   <Input
-                    size="lg"
-                    value={request.matricule}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      setRequest({ ...request, matricule: e.target.value });
-                    }}
-                    placeholder="Enter car matricule"
-                  />
+                      size="lg"
+                      value={request.matricule}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequest({ ...request, matricule: e.target.value });
+                      } }
+                      placeholder="Enter car matricule" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}                  />
                 </div>
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Model
                   </Typography>
                   <Input
-                    size="lg"
-                    value={request.model}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      setRequest({ ...request, model: e.target.value });
-                    }}
-                    placeholder="Enter car model"
-                  />
+                      size="lg"
+                      value={request.model}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequest({ ...request, model: e.target.value });
+                      } }
+                      placeholder="Enter car model" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}                  />
                 </div>
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Select Client
                   </Typography>
                   <Select
-                    label="Client"
-                    value={request.clientId?.toString() || ""}
-                    onChange={(value: string) => {
-                      setRequest({ ...request, clientId: value ? parseInt(value, 10) : null });
-                    }}
-                  >
+                      label="Client"
+                      value={request.clientId?.toString() || ""}
+                      onChange={(value: string) => {
+                        setRequest({ ...request, clientId: value ? parseInt(value, 10) : null });
+                      } }  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                  >
                     {clients.map((client) => (
                       <Option key={client.id} value={client.id.toString()}>
                         {client.name} {/* You can adjust this to show any identifier */}
@@ -196,12 +192,11 @@ export function CarForm() {
                   </Select>
                 </div>
                 <Button
-                  type="submit"
-                  variant="gradient"
-                  className="mt-4"
-                  fullWidth
-                  disabled={loading}
-                >
+                    type="submit"
+                    variant="gradient"
+                    className="mt-4"
+                    fullWidth
+                    disabled={loading}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   {loading
                     ? "Processing..."
                     : carId
@@ -211,13 +206,12 @@ export function CarForm() {
               </form>
             )}
           </CardBody>
-          <CardFooter className="pt-4 flex justify-center">
+          <CardFooter className="pt-4 flex justify-center"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             <Button
               variant="text"
               color="red"
               onClick={closeForm}
-              className="mr-2"
-            >
+              className="mr-2"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               Cancel
             </Button>
           </CardFooter>

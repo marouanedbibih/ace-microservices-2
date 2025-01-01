@@ -43,15 +43,15 @@ export function ClientTableBody() {
   };
 
   return (
-    <CardBody className="px-0 bg-white shadow-lg rounded-lg">
+    <CardBody className="px-0 bg-white shadow-lg rounded-lg" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       {loading && (
         <div className="flex justify-center items-center py-4">
-          <Spinner />
+          <Spinner onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
         </div>
       )}
       {clients.length === 0 && !loading && (
         <div className="flex justify-center items-center py-4">
-          <Typography variant="h6" color="gray" className="font-normal">
+          <Typography variant="h6" color="gray" className="font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             No data available
           </Typography>
         </div>
@@ -68,8 +68,7 @@ export function ClientTableBody() {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal leading-none opacity-70"
-                  >
+                    className="font-normal leading-none opacity-70" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                  >
                     {head}
                   </Typography>
                 </th>
@@ -89,8 +88,7 @@ export function ClientTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {client.name}
                     </Typography>
                   </td>
@@ -98,8 +96,7 @@ export function ClientTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {client.age}
                     </Typography>
                   </td>
@@ -108,24 +105,21 @@ export function ClientTableBody() {
                       <Tooltip content="View User">
                         <IconButton
                           variant="text"
-                          onClick={() => viewClient(client.id)}
-                        >
+                          onClick={() => viewClient(client.id)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <EyeIcon className="h-4 w-4 text-blue-500" />
                         </IconButton>
                       </Tooltip>
                       <Tooltip content="Edit User">
                         <IconButton
                           variant="text"
-                          onClick={() => editClient(client.id)}
-                        >
+                          onClick={() => editClient(client.id)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <PencilIcon className="h-4 w-4 text-green-500" />
                         </IconButton>
                       </Tooltip>
                       <Tooltip content="Delete User">
                         <IconButton
                           variant="text"
-                          onClick={() => deleteClient(client.id)}
-                        >
+                          onClick={() => deleteClient(client.id)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <TrashIcon className="h-4 w-4 text-red-500" />
                         </IconButton>
                       </Tooltip>

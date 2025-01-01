@@ -3,9 +3,9 @@ server:
 # Spring Config
 spring:
   application:
-    name: client-service 
+    name: client-service
   datasource:
-    url: ${DATABASE_URL:jdbc:mysql://localhost:3307/clients_db?createDatabaseIfNotExist=true}
+    url: ${DATABASE_URL:jdbc:mysql://mysql:3306/clients_db?createDatabaseIfNotExist=true}
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${DATABASE_USERNAME:user}
     password: ${DATABASE_PASSWORD:password}
@@ -19,12 +19,12 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/ 
-    register-with-eureka: true 
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
     fetch-registry: true 
 
 # Logging Config
 logging:
   level:
-    org.hibernate.SQL: DEBUG 
-    org.springframework: INFO 
+    org.hibernate.SQL: DEBUG
+    org.springframework: INFO

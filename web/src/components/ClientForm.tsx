@@ -97,16 +97,15 @@ export function ClientForm() {
         size="md"
         open={isFormOpen}
         handler={toggleForm}
-        className="bg-transparent shadow-none"
-      >
-        <Card className="mx-auto w-full max-w-[28rem]">
-          <CardBody>
-            <Typography variant="h4" color="blue-gray" className="text-center">
+        className="bg-transparent shadow-none"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}      >
+        <Card className="mx-auto w-full max-w-[28rem]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+          <CardBody  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+            <Typography variant="h4" color="blue-gray" className="text-center"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               {clientId ? "Edit Client" : "Create Client"}
             </Typography>
             {formLoading ? (
               <div className="flex justify-center items-center h-32">
-                <Spinner className="h-12 w-12 text-blue-500" />
+                <Spinner className="h-12 w-12 text-blue-500" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
               </div>
             ) : (
               <form
@@ -114,42 +113,39 @@ export function ClientForm() {
                 className="flex flex-col gap-4 mt-6"
               >
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Name
                   </Typography>
                   <Input
-                    size="lg"
-                    value={request.name}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      setRequest({ ...request, name: e.target.value });
-                    }}
-                    placeholder="Enter client name"
-                  />
+                      size="lg"
+                      value={request.name}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequest({ ...request, name: e.target.value });
+                      } }
+                      placeholder="Enter client name" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}                  />
                 </div>
                 <div>
-                  <Typography variant="h6" color="blue-gray">
+                  <Typography variant="h6" color="blue-gray"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                     Age
                   </Typography>
                   <Input
-                    size="lg"
-                    value={request.age}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      setRequest({
-                        ...request,
-                        age: parseInt(e.target.value, 10),
-                      });
-                    }}
-                    placeholder="Enter client age"
-                    type="number"
-                  />
+                      size="lg"
+                      value={request.age}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequest({
+                          ...request,
+                          age: parseInt(e.target.value, 10),
+                        });
+                      } }
+                      placeholder="Enter client age"
+                      type="number" onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}                  />
                 </div>
                 <Button
-                  type="submit"
-                  variant="gradient"
-                  className="mt-4"
-                  fullWidth
-                  disabled={loading}
-                >
+                    type="submit"
+                    variant="gradient"
+                    className="mt-4"
+                    fullWidth
+                    disabled={loading}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                >
                   {loading
                     ? "Processing..."
                     : clientId
@@ -159,13 +155,12 @@ export function ClientForm() {
               </form>
             )}
           </CardBody>
-          <CardFooter className="pt-4 flex justify-center">
+          <CardFooter className="pt-4 flex justify-center"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             <Button
               variant="text"
               color="red"
               onClick={closeForm}
-              className="mr-2"
-            >
+              className="mr-2"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}            >
               Cancel
             </Button>
           </CardFooter>

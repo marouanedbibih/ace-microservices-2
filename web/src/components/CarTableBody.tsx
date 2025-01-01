@@ -43,15 +43,15 @@ export function CarTableBody() {
   };
 
   return (
-    <CardBody className="px-0 bg-white shadow-lg rounded-lg">
+    <CardBody className="px-0 bg-white shadow-lg rounded-lg"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
       {loading && (
         <div className="flex justify-center items-center py-4">
-          <Spinner />
+          <Spinner onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
         </div>
       )}
       {cars.length === 0 && !loading && (
         <div className="flex justify-center items-center py-4">
-          <Typography variant="h6" color="gray" className="font-normal">
+          <Typography variant="h6" color="gray" className="font-normal"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             No data available
           </Typography>
         </div>
@@ -68,8 +68,7 @@ export function CarTableBody() {
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal leading-none opacity-70"
-                  >
+                    className="font-normal leading-none opacity-70"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                  >
                     {head}
                   </Typography>
                 </th>
@@ -89,8 +88,7 @@ export function CarTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {car.marque}
                     </Typography>
                   </td>
@@ -98,8 +96,7 @@ export function CarTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {car.matricule}
                     </Typography>
                   </td>
@@ -107,8 +104,7 @@ export function CarTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {car.model}
                     </Typography>
                   </td>
@@ -116,8 +112,7 @@ export function CarTableBody() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
-                    >
+                      className="font-normal"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                    >
                       {car.client.name}
                     </Typography>
                   </td>
@@ -126,24 +121,21 @@ export function CarTableBody() {
                       <Tooltip content="View Car">
                         <IconButton
                           variant="text"
-                          onClick={() => viewCar(car.id)}
-                        >
+                          onClick={() => viewCar(car.id)}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <EyeIcon className="h-4 w-4 text-blue-500" />
                         </IconButton>
                       </Tooltip>
                       <Tooltip content="Edit Car">
                         <IconButton
                           variant="text"
-                          onClick={() => editCar(car.id)}
-                        >
+                          onClick={() => editCar(car.id)}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <PencilIcon className="h-4 w-4 text-green-500" />
                         </IconButton>
                       </Tooltip>
                       <Tooltip content="Delete Car">
                         <IconButton
                           variant="text"
-                          onClick={() => deleteCar(car.id)}
-                        >
+                          onClick={() => deleteCar(car.id)}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
                           <TrashIcon className="h-4 w-4 text-red-500" />
                         </IconButton>
                       </Tooltip>
